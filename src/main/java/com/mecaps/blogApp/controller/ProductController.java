@@ -46,5 +46,10 @@ public class ProductController {
         List<ProductResponseDTO> byNameAndPrice = productService.findByNameAndPrice(name, price);
         return byNameAndPrice;
     }
+    @GetMapping("/findq")
+    public List<ProductResponseDTO> findbyquantity (Integer quantity){
+      List<ProductResponseDTO> byquantity = productService.findByQuantity(quantity);
+      return  byquantity;
+    }
 
 }

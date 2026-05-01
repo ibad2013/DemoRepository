@@ -82,5 +82,15 @@ public class ProductServiceImpl implements ProductService {
         }
         return  findbynameandprice.stream().map(ProductResponseDTO::new).toList();
     }
+
+    @Override
+    public List<ProductResponseDTO> findByQuantity(Integer quantity) {
+      List<Product> findbvquantity =  productRepository.findByQuantity(quantity);
+      if(findbvquantity.isEmpty()){
+          throw new ResourcrsNotFoundException("quantity is not valid");
+      }
+      return findbvquantity.stream().map(ProductResponseDTO::new).toList();
+
+    }
 }
 

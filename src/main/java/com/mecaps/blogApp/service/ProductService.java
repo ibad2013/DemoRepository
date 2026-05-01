@@ -15,4 +15,5 @@ public interface ProductService {
    // List<ProductResponseDTO> findByProduct_name(String name);
     List<ProductResponseDTO> findByName(String name);
     List<ProductResponseDTO> findByNameAndPrice(String name ,Double price);
+    List<ProductResponseDTO> findByQuantity(Integer quantity);
 }
