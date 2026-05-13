@@ -34,28 +34,20 @@ public class UsersController {
 
 
     @PostMapping("/create")
-    public UsersResponseDTO createUsers(@Valid @RequestBody UserRequestDTO requestDTO){
+    public UsersResponseDTO createUsers(@Valid @RequestBody UserRequestDTO requestDTO) {
         return userService.createUsers(requestDTO);
     }
+        @PatchMapping("/update/{id}")
+        public UsersResponseDTO updateUser (@PathVariable Long id, @RequestBody UserRequestDTO requestDTO){
+            return userService.updateUsers(id, requestDTO);
+        }
 
 
-    @PatchMapping("/update/{id}")
-    public UsersResponseDTO updateUser(@PathVariable Long id, @RequestBody UserRequestDTO requestDTO){
-        return userService.updateUsers(id,requestDTO);
+        @DeleteMapping("/delete/{userId}")
+        public String deleteUser (@PathVariable Long userId){
+            return userService.deleteUser(userId);
+        }
+
+
     }
 
-
-    @DeleteMapping("/delete/{userId}")
-    public String deleteUser(@PathVariable Long userId){
-        return userService.deleteUser(userId);
-    }
-
-
-
-
-
-
-
-
-
-}

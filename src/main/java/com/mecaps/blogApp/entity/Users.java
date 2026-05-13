@@ -17,9 +17,10 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column(unique = true,nullable = false)
     private String userName;
     private String password;
+    @Column(unique = true,nullable = false)
     private String email;
     private String role;
 
